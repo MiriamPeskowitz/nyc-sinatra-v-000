@@ -1,0 +1,130 @@
+notes 
+
+1. create tables, run migrations DONE 
+2. play around in tux 
+3. make models -- singular for class names and file titles. DONE
+4. set relationships DONE. draw a map, helps 
+4. Now, play in tux 
+5. Now what? migrate test suite -- add in [4.2] Works. DONE 
+6. Create Controllers. 
+
+
+START HERE ON WEEKEND -- CREATE CRUD ON THE FIGURES 
+    -- THESE WILL HAVE figures/edit, figures/index, figures/new, figures/show, like before,, etc. 
+7. Create Complex Form. Figure out the hash, and write out relationships -- 
+		--dynamically create checkboxes from the available landmarks and titles 
+		-- field to create new landmark
+		--field to create new title 
+8. Form to edit a figure 
+
+@figure.name
+@figure.landmarks
+ @figure = Figure.create(:name => "Fiorello LaGuardia") 
+
+    @airport =  Landmark.create(:name => "LG Airport") 
+    @library = Landmark.create(:name => "Library")
+
+    @mayor = Title.create(:name => "Mayor")
+    @councilman = Title.create(:name => "Councilman")
+
+@airport.name
+@airport.year_completed
+ @figure = Figure.create(:name => "Fiorello LaGuardia") 
+
+    @airport =  Landmark.create(:name => "LG Airport", :year_completed => 1950) 
+    @library = Landmark.create(:name => "Library")
+
+ @figure = Figure.create(:name => "Fiorello LaGuardia") 
+    @mayor = Title.create(:name => "Mayor")
+
+
+
+9. /figures/new 
+	<form
+	figure[name]
+	figure[title_ids][]
+	figure[landmark_ids][]
+	landmark[name]
+	title[name]
+
+	 Form
+	 	 visit '/figures/new'
+	    fill_in :figure_name, :with => "Doctor Who"
+	    check "title_#{Title.first.id}"
+	    click_button "Create New Figure"
+	    figure = Figure.last
+	    expect(Figure.all.count).to eq(3)
+	    expect(figure.name).to eq("Doctor Who")
+	    expect(figure.titles).to include(Title.first)
+
+10. /figures
+	lists all the figures 
+		@figures = Figure.all then iterate over @figures.each {}
+	-- 	get "/figures/#{@figure.id}"
+	-- ("#{@figure.name}")
+
+11, get "/figures/#{@figure.id}/edit"
+ -- view form to edit a single figure 
+ 		figure[name]
+ 		figure[title_ids]
+ 		@figure.name 
+
+
+12. visit "/figures/#{@figure.id}/edit"
+	figure_name
+	new_landmark -- these two are fill_in's -> id 
+	click button :Edit Figure 
+	@figure.name
+
+13. destroy
+14. have I created 7 cruds? create, read, update/pathc, delete. Look for model. 
+
+15.  '/landmarks/new'
+	-- view form to create new landmark 
+	landmark[name]
+	landmark[year_completed]
+
+	--create new landmark 
+
+16. /landmarks
+	--list all the landmarks 
+
+17. "/landmarks/#{@landmark.id}"
+   -- see a single landmark 
+
+ 18. get "/landmarks/#{@landmark.id}/edit"
+ 		view form to edit a single landmark 
+ 		landmark[name]')
+ 		landmark[year_completed]
+ 		@landmark.name
+ 		@landmark.year_completed
+
+ 19. /landmarks/#{@landmark.id}/edit"
+ 		edit single landmark 
+ 			fillin: name, year_completed
+ 		click button: Edit Landmark 
+ 			/landmarks/#{@landmark.id}")
+ 		(@landmark.year_completed.to_s)
+ 20. Create checkboxes for all the landmarks and titles  created on the Figures new page 
+ Landmark.create(name: BQE, year_completed: 1961)
+ /figures/new  
+ "input[type=\"checkbox\"]")
+ Title.create(:name => Mayor 
+ /figures/new
+ "input[type=\"checkbox\"]"
+
+
+
+
+ visit /figures/new
+
+ get /figures/new
+ get /figures
+ get /figures/id...
+ get /figures/id/edit
+ patch /figures/:id
+ post /figures 
+ delete /figures/:id/delete
+
+(Hey, this feels good. )
+
