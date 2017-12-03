@@ -11,6 +11,9 @@ notes
 
 START HERE ON WEEKEND -- CREATE CRUD ON THE FIGURES 
     -- THESE WILL HAVE figures/edit, figures/index, figures/new, figures/show, like before,, etc. 
+6.5 create index, w/href to landmark index and figuresindex DONE
+6.8 Let's do figures first 
+
 7. Create Complex Form. Figure out the hash, and write out relationships -- 
 		--dynamically create checkboxes from the available landmarks and titles 
 		-- field to create new landmark
@@ -51,7 +54,7 @@ START HERE ON WEEKEND -- CREATE CRUD ON THE FIGURES
 	 	 visit '/figures/new'
 	    fill_in :figure_name, :with => "Doctor Who"
 	    check "title_#{Title.first.id}"
-	    click_button "Create New Figure"
+	    click_button "Create New Figure" DONE
 	    figure = Figure.last
 	    expect(Figure.all.count).to eq(3)
 	    expect(figure.name).to eq("Doctor Who")
