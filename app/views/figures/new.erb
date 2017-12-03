@@ -1,0 +1,48 @@
+this is the form to create a new figure , or landmark? 
+
+<h1>Add a New Figure: </h1>
+
+<form action="/songs" method="POST">
+
+
+<label>Figure Name:</label>
+ 
+  	<input type="text" name="Artist Name" value="figure[name]">
+  	
+  
+		
+	<br></br>
+
+figure with title 
+figure with landmark
+figure with new title
+figure with new landmark 
+checkboxes
+	
+	<label>Figure's Landmark</label>
+
+	<!-- Make a checkbox for all the existing genres then create new?  -->
+	<% Landmarks.all.each do |landmark| %>
+		<input 
+		type="checkbox" 
+		value="<%= landmark.name %>" 
+		name="landmark" 
+		id="<%= landmark.name %>"
+		>
+		<% end %>
+		<input type="text" value="new landmark">
+
+	
+	<br>
+
+	<% Titles.all.each do |title| %>
+		<input 
+		type="checkbox" 
+		value="<%= title.name %>" 
+		name="Title" 
+		id="<%= title.name %>"
+		>
+		<% end %>
+
+<input type="submit" value="Create New Figure">
+</form>
