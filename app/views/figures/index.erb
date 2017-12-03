@@ -1,0 +1,9 @@
+This is figures/index, it's the first page of figures, lists all the figures, asks if you want to create new, or edit. Wait, test says that figures/ is what lists all the figures. 
+
+Show all 
+
+<ul>
+	<% @figures.each do |figure| %>
+		<li><a href="/figures/<%= figure.id%>"<%= figure.name %></a>
+
+</ul>
