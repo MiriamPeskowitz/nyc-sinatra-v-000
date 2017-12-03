@@ -1,14 +1,18 @@
 <!-- This is figures/index, it's the first page of figures, lists all the figures, asks if you want to create new, or edit. Wait, test says that figures/ is what lists all the figures.  -->
 
-<p>To edit, click on a figure</p>
-<a class= "button" href="/figures/new">Create New Figure"</a>
 
-<a class= "button" href="/">Home</a>
+<h1>NYC Figures:</h1>
+
+<a href="/figures/new">Make a New Figure</a>
+
+
+<p>:</p>
 
 <ul>
 	<% @figures.each do |figure| %>
 		<li><a href="/figures/<%= figure.id%>"<%= figure.name %></a>
 
 </ul>
+
 
 

@@ -1,48 +1,49 @@
-this is the form to create a new figure , or landmark? 
+
 
 <h1>Add a New Figure: </h1>
 
-<form action="/songs" method="POST">
+<form action="/figures/new" method="POST">
 
 
-<label>Figure Name:</label>
- 
-  	<input type="text" name="Artist Name" value="figure[name]">
-  	
-  
+	<label>Figure Name:</label>
+  	<input type="text" name="figure[name]" id="figure_name">
+
+
 		
 	<br></br>
 
-figure with title 
+<!-- figure with title 
 figure with landmark
-figure with new title
+figure with new title DONE
 figure with new landmark 
-checkboxes
-	
-	<label>Figure's Landmark</label>
+checkboxes -->
 
-	<!-- Make a checkbox for all the existing genres then create new?  -->
-	<% Landmarks.all.each do |landmark| %>
-		<input 
-		type="checkbox" 
-		value="<%= landmark.name %>" 
-		name="landmark" 
-		id="<%= landmark.name %>"
+<h3>Landmark: Add an existing landmark, or enter a new one </h3>
+	
+	<!-- Make a checkbox for all the existing genres then create new,  -->
+	<% Landmark.all.each do |landmark| %>
+		<label><%= landmark.name %></label>
+		<input type="checkbox" value="<%= landmark.name %>"name="landmark" 
+		id="landmark<%= landmark.name %>"
 		>
 		<% end %>
 		<input type="text" value="new landmark">
 
 	
 	<br>
+	<label>Add a new Landmark:</label>
+  	<input type="text" name="landmark[name]" id="new_landmark">
+  	<br>
 
-	<% Titles.all.each do |title| %>
-		<input 
-		type="checkbox" 
-		value="<%= title.name %>" 
-		name="Title" 
-		id="<%= title.name %>"
-		>
+<h3>Title: Add an existing title, or enter a new one </h3>
+	<% Title.all.each do |title| %>
+		<label><%= title.name %></label>
+		<input type="checkbox" id="title_<%=title.id%>" name="figure[title_ids][]">
+		
 		<% end %>
+
+<label>New Title:</label>
+  	<input type="text" name="title[name]" id="new_title">
 
 <input type="submit" value="Create New Figure">
 </form>
