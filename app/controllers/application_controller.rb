@@ -7,8 +7,10 @@ class ApplicationController < Sinatra::Base
 		enable :sessions
 		set :session_secret, "my_secret"
 	end 
-	# get '/' do
- #    	erb :index
- # 	end
+
+	get "/" do 
+		erb :"application/root"
+	end 
+
 
 end

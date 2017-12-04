@@ -1,0 +1,45 @@
+
+
+<h2>Name: <%= @figure.name %></h2>
+
+<h3>Landmarks: </h3>
+	<ul>
+        <% @figure.landmarks.each do |landmark|%>
+        <li><%=landmark.name%></li>
+        <% end %>
+	</ul>
+
+ <h3>Titles: </h3>
+ 	<ul>
+        <% @figure.titles.each do |title|%>
+        <li><%=titles.name%></li>
+        <% end %>
+    </ul>
+<h3> <a href="/figures">See more figures</a></h3>
+<h3> <a href="/figures">edit</a></h3>
+
+/figures/#{@figure.id}'
+/figures/:id/edit"
+<!-- 
+      <table>
+  <th>Person Name</th>
+  <tr>
+      <td align="center"><a href="/figures/<%= @figure.id %>"><%= @figure.name %></a>
+      <ul>
+      Landmarks:
+        <%@figure.landmarks.each do |landmark|%>
+        <li><%=landmark.name%></li>
+        <%end%>
+      </ul>
+      <ul>
+      Titles:
+        <%@figure.titles.each do |title|%>
+        <li><%=title.name%></li>
+        <%end%>
+      </ul>
+  </tr> 
+      </td>
+</table>
+<br>
+<a class="button" href="/">Go Home</a>
+ -->

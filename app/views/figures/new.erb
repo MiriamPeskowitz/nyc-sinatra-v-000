@@ -2,14 +2,12 @@
 
 <h1>Add a New Figure: </h1>
 
-<form action="/figures/new" method="POST">
+<form action="/figures/#{@figure.id}" method="POST">
 
 
 	<label>Figure Name:</label>
-  	<input type="text" name="figure[name]" id="figure_name">
+  	<input type="text" id="figure_name" name="figure[name]">
 
-
-		
 	<br></br>
 
 <!-- figure with title 
@@ -23,17 +21,20 @@ checkboxes -->
 	<!-- Make a checkbox for all the existing genres then create new,  -->
 	<% Landmark.all.each do |landmark| %>
 		<label><%= landmark.name %></label>
-		<input type="checkbox" value="<%= landmark.name %>"name="landmark" 
-		id="landmark<%= landmark.name %>"
-		>
+		<input type="checkbox" id="landmark_<%= landmark.name %>" name="figure[landmark_ids][]" value="<%= landmark.id %> ">
+		<br>
 		<% end %>
-		<input type="text" value="new landmark">
 
 	
-	<br>
-	<label>Add a new Landmark:</label>
-  	<input type="text" name="landmark[name]" id="new_landmark">
+	<h4>Create New Landmark:</h4>
+  	<label> Name: </label>
+  	<input type="text" id="new_landmark" name="landmark[name]" >
+
+  	<label> Year: </label>
+  	<input type="text" id="new_landmark_name" name="landmark[year_completed]" >
+  		
   	<br>
+
 
 <h3>Title: Add an existing title, or enter a new one </h3>
 	<% Title.all.each do |title| %>
@@ -42,8 +43,9 @@ checkboxes -->
 		
 		<% end %>
 
-<label>New Title:</label>
-  	<input type="text" name="title[name]" id="new_title">
+	<label>New Title:</label>
+  	<input type="text" id="new_title" name="title[name]" >
+	<br>
 
 <input type="submit" value="Create New Figure">
 </form>

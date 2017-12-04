@@ -6,13 +6,15 @@
 <a href="/figures/new">Make a New Figure</a>
 
 
-<p>:</p>
+<p><a href="/landmarks/index">I Want to see NYC Landmarks instead.</a> </p>
+
 
 <ul>
 	<% @figures.each do |figure| %>
-		<li><a href="/figures/<%= figure.id%>"<%= figure.name %></a>
+		<!-- <li><a href="/figures/<%= figure.id%>"><%= figure.name %></a> </li> -->
+		<li><%= figure.name %><a href="/figures/<%= figure.id%>">edit</a> </li>
+	<%end%>
 
 </ul>
-
 
 

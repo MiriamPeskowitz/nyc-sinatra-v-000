@@ -14,10 +14,25 @@ START HERE ON WEEKEND -- CREATE CRUD ON THE FIGURES
 6.5 create index, w/href to landmark index and figuresindex DONE
 6.8 Let's do figures first 
 
+
 7. Create Complex Form. Figure out the hash, and write out relationships -- 
 		--dynamically create checkboxes from the available landmarks and titles 
 		-- field to create new landmark
 		--field to create new title 
+
+
+Figure = 
+	{name:
+	{title:
+	{landmark:
+		{name:
+		{year of completion:
+		}
+	}
+}
+
+Thus: figure[name], figure[title], figure[landmark][name], figure[landmark][year_of_completion]
+
 8. Form to edit a figure 
 
 @figure.name
@@ -158,3 +173,7 @@ TEMP:
 #  		get figures/edit 
 #  #  allows you to edit a single figure (FAILED - 9)
 #  		patch figures/edit 
+
+<!-- #do a second round 		# <% @figures.titles.each do |title| %>
+		# <li><%=title.name%></li>
+		# <%end%>-->

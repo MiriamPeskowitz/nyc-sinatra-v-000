@@ -1,5 +1,13 @@
 class LandmarksController < ApplicationController
 
+#send form to screen to create new lm
+	# get "/landmark/new" do
+
+	# end
+
+	# get landmarks/:id/
+
+	# end
 end
 
 # get landmark/new
