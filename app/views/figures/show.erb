@@ -12,15 +12,19 @@
  <h3>Titles: </h3>
  	<ul>
         <% @figure.titles.each do |title|%>
-        <li><%=titles.name%></li>
+        <li><%=title.name%></li>
         <% end %>
     </ul>
 
-<h3> <a href="/figures/index">See more figures</a></h3>
-<h3> <a href="/figures/#{@figure.id}/edit">edit</a></h3>
+<h3> <a href="/figures">Index</a></h3>
+<h3> <a href="/figures/<%= @figure.id%>/edit">edit</a></h3>
 
 
 <!-- 
+href - go to route, not view
+double quotes
+
+
       <table>
   <th>Person Name</th>
   <tr>

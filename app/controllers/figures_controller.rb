@@ -13,18 +13,6 @@ class FiguresController < ApplicationController
 		erb :"figures/new"
 	end 
 
-# see a specific figure 
-	get "/figures/:id" do
-		@figure = Figure.find(params[:id])
-		erb :"figures/show"
-	end 
-
-	get "/figures/:id/edit" do
-		@figure = Figure.find(params[:id])
-		erb :"figures/edit"
-	end
-
-#get data from new form, turn into object, send to db, go to 
 	post "/figures" do 
 		@figure = Figure.create(params[:name])
 	
@@ -38,12 +26,30 @@ class FiguresController < ApplicationController
 	      end
 		
 	    @figure.save
-		redirect to '/figures/#{@figure.id}'
+	    binding.pry
+		redirect to "/figures/#{@figure.id}"
+
 	end 
+
+# see a specific figure 
+	get "/figures/:id" do
+		@figure = Figure.find(params[:id])
+		erb :"figures/show"
+	end 
+
+	get "/figures/:id/edit" do
+		@figure = Figure.find(params[:id])
+		erb :"figures/edit"
+	end
+
+#get data from new form, turn into object, send to db, go to 
+
 #get data from edit form 
 	patch "/figures/:id" do
 		@figure = Figure.find(params[:id])
-		 @figure.update(params[:figure])
+		@figure.name = params[:name]
+
+		# @figure.update(params[:figure])
       
       if !params[:landmark][:name].empty?
         @figure.landmarks << Landmark.create(params[:landmark])
