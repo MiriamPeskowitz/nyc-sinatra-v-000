@@ -14,8 +14,9 @@ class FiguresController < ApplicationController
 	end 
 
 	post "/figures" do 
+		binding.pry
 		@figure = Figure.create(params[:name])
-	
+		
 		#move between checkboxes and new 
 		  if !params[:landmark][:name].empty?
 	        @figure.landmarks << Landmark.create(params[:landmark])
@@ -24,10 +25,10 @@ class FiguresController < ApplicationController
 	      if !params[:title][:name].empty?
 	        @figure.titles << Title.create(params[:title])
 	      end
-		
-	    @figure.save
-	    binding.pry
-		redirect to "/figures/#{@figure.id}"
+	
+	      @figure.save
+	
+		  redirect to "/figures/#{@figure.id}"
 
 	end 
 
@@ -47,20 +48,18 @@ class FiguresController < ApplicationController
 #get data from edit form 
 	patch "/figures/:id" do
 		@figure = Figure.find(params[:id])
-		@figure.name = params[:name]
-
-		# @figure.update(params[:figure])
+		@figure.update(params[:figure])
       
-      if !params[:landmark][:name].empty?
-        @figure.landmarks << Landmark.create(params[:landmark])
-      end
+	      if !params[:landmark][:name].empty?
+	        @figure.landmarks << Landmark.create(params[:landmark])
+	      end
 
-      if !params[:title][:name].empty?
-        @figure.titles << Title.create(params[:title])
-      end
+	      if !params[:title][:name].empty?
+	        @figure.titles << Title.create(params[:title])
+	      end
 
-      @figure.save
-      redirect to "/figures/#{@figure.id}"
+	      @figure.save
+	      redirect to "/figures/#{@figure.id}"
 	end 
 
 	delete '/figures/:id/delete' do
