@@ -11,8 +11,7 @@
 
 <ul>
 	<% @figures.each do |figure| %>
-		<!-- <li><a href="/figures/<%= figure.id%>"><%= figure.name %></a> </li> -->
-		<li><%= figure.name %><a href="/figures/<%= figure.id%>">edit</a> </li>
+		<li><a href="/figures/<%= figure.id%>"><%= figure.name %></a> .... <a href="/figures/<%= figure.id%>">edit</a> </li>
 	<%end%>
 
 </ul>
