@@ -39,11 +39,4 @@ class LandmarksController < ApplicationController
 	    @landmark.save
 	    redirect to "/landmarks/#{@landmark.id}"
   	end
-
-	
-
 end 
-# #   allows you to edit a single landmark (FAILED - 15)
-# #   	patch landmark/edit
-# #   creates checkboxes for all the landmarks and titles created on the Figures new page (FAILED - 16)
-
