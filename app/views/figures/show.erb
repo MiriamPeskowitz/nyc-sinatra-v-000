@@ -1,49 +1,32 @@
 
 
-<h2>Name: <%= @figure.name %></h2>
+<h2>Name: 
+<a href="/figures/<%= @figure.id %>"><%= @figure.name %></a></h2>
 
 <h3>Landmarks: </h3>
-	<ul>
+	   <ul>
         <% @figure.landmarks.each do |landmark|%>
         <li><%=landmark.name%></li>
-        <% end %>
-	</ul>
+        <%end %>
+	   </ul>
 
  <h3>Titles: </h3>
- 	<ul>
+ 	    <ul>
         <% @figure.titles.each do |title|%>
         <li><%=title.name%></li>
-        <% end %>
-    </ul>
+        <%end %>
+      </ul>
 
-<h3> <a href="/figures">Index</a></h3>
-<h3> <a href="/figures/<%= @figure.id%>/edit">edit</a></h3>
+<h3> <a href="/figures">Figure Index</a></h3>
+
+<h3> <a href="/figures/<%= @figure.id%>/edit">Edit</a></h3>
+
+<h3> <a href="/">Home</a></h3>
 
 
 <!-- 
 href - go to route, not view
 double quotes
 
-
-      <table>
-  <th>Person Name</th>
-  <tr>
-      <td align="center"><a href="/figures/<%= @figure.id %>"><%= @figure.name %></a>
-      <ul>
-      Landmarks:
-        <%@figure.landmarks.each do |landmark|%>
-        <li><%=landmark.name%></li>
-        <%end%>
-      </ul>
-      <ul>
-      Titles:
-        <%@figure.titles.each do |title|%>
-        <li><%=title.name%></li>
-        <%end%>
-      </ul>
-  </tr> 
-      </td>
-</table>
-<br>
 <a class="button" href="/">Go Home</a>
  -->

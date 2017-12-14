@@ -1,0 +1,16 @@
+<!-- Index/show all 
+
+
+ -->
+<h1>NYC Landmarks:</h1>
+  <a href="/landmarks/new">Make a New Landmark</a>
+<ul>
+	<% @landmarks.each do |landmark| %>
+		<li><a href="/landmarks/<%= landmark.id%>"><%= landmark.name %>, <%= landmark.year_completed %></a> 
+	<%end%>
+`
+</ul>
+
+<p><a href="/figures/index">I Want to see NYC Figures instead.</a> </p>
+
+
